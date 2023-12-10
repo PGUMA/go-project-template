@@ -13,7 +13,7 @@
 # Install Tools
 
 ```bash
-aqua -i
+aqua i
 ```
 
 # Run Example
