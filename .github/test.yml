@@ -11,6 +11,24 @@ env:
   DOCKER_IMAGE_TAG: "backend"
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run golangci-lint with Reviewdog
+        uses: reviewdog/action-golangci-lint@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          go_version: 1.21
+          reporter: github-pr-review
+          level: warning
+
   go_test:
     runs-on: ubuntu-latest
     steps:
