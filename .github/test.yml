@@ -1,0 +1,29 @@
+name: test
+
+on:
+  push:
+    branches-ignore:
+      - main
+  workflow_dispatch:
+
+# 環境変数を設定
+env:
+  DOCKER_IMAGE_TAG: "backend"
+
+jobs:
+  go_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Go Setup
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.21
+
+      - name: Run Test
+        run: go test -v ./... -coverprofile=coverage.out
+
+      - name: Run Octocov
+        uses: k1LoW/octocov-action@v0
