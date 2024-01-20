@@ -11,3 +11,5 @@ testExecutionTime:
   if: true
 comment:
   if: is_pull_request
+summary:
+  if: true
