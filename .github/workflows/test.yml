@@ -11,8 +11,6 @@ env:
   DOCKER_IMAGE_TAG: "backend"
 
 jobs:
-  if: contains(github.head_ref, 'feature')
-
   lint:
     runs-on: ubuntu-latest
     permissions:
