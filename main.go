@@ -7,5 +7,5 @@ func main() {
 }
 
 func SimpleFunc() string {
-	return "ok"
+	return "OK"
 }
